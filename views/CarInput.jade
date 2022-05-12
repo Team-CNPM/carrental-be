@@ -1,0 +1,42 @@
+html
+  head
+  body
+    form(method='POST', action='createCar')
+      label Tênn xe:
+      input(type='text', name='Car_Name' class='form-control')
+      br
+      |     
+      label Loại xe:
+      input(type='text', name='Car_Type' class='form-control')
+      br
+      |     
+      label Hình xe:
+      input(type='text', name='Car_Image' class='form-control')
+      br
+      |     
+      label Giá xe:
+      input(type='number', name='Car_Price' class='form-control')
+      br
+      |     
+      label Số lượng xe:
+      input(type='number', name='Num_Car' class='form-control')
+      br
+      |     
+      label Số lượng ghế:
+      input(type='number', name='Num_Sheet' class='form-control')
+      br
+      |     
+      label Số hành lý:
+      input(type='number', name='Num_Luggage' class='form-control')
+      br
+      |     
+      label Màu xe:
+      input(type='text', name='Car_Color' class='form-control')
+      br
+      |     
+      label Điều khoản thuê:
+      br
+      |     
+      textarea(type='text', name='Car_Policy_Rent' class='form-control')
+      |     
+      input(type='submit', value='Send')
