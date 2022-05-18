@@ -29,8 +29,8 @@ router.post('/createDriver', function(req, res, next){
         var tentaixe = req.body.tentaixe;
         var best_drive = req.body.best_drive;
         var status_vaccinate = req.body.best_drive;
-        var sql = `INSERT INTO TAIXE (TAIXEID,XEID,NAME,BEST_DRIVER,STATUS_VACCINATED)
-        VALUES (${taixeid},${xeid},"${tentaixe}","${best_drive}","${status_vaccinate}")`;
+        var sql = `INSERT INTO TAIXE (XEID,NAME,BEST_DRIVER,STATUS_VACCINATED)
+        VALUES (${xeid},"${tentaixe}","${best_drive}","${status_vaccinate}")`;
         con.querry(sql, function(err,result){
             if (err) throw err;
             res.send(result);

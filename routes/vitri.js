@@ -14,7 +14,8 @@ var con = mysql2.createConnection({
 router.get('/', function(req, res, next){
   con.connect(function(err){
     if (err) throw err;
-    con.query("Select * From VITRI",function(err, result){
+    var sql = `Select * From VITRI`
+    con.query(sql,function(err, result){
       if(err) throw err;
       res.json(result[0]);
     });
@@ -26,7 +27,7 @@ router.get('/', function(req, res, next){
     var country = req.body.country;
     var province = req.body.province;
     var city = req.body.city;
-    var sql = `INSERT INTO VITRI (VITRIID, COUNTRY, PROVINCE, CITY) VALUES (${id},"${country}","${province}","${city}")`;
+    var sql = `INSERT INTO VITRI (COUNTRY, PROVINCE, CITY) VALUES ("${country}","${province}","${city}")`;
     con.query(sql,function(err,result){
       if(err) throw err;
       res.send(result);

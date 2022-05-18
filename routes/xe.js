@@ -13,7 +13,8 @@ var con = mysql2.createConnection({
 router.get('/', function(req, res, next){
     con.connect(function(err){
       if (err) throw err;
-      con.query("Select * From XE",function(err, result){
+      var sql =`Select * From XE`;
+      con.query(sql,function(err, result){
         if(err) throw err;
         res.json(result[0]);
       });
@@ -33,7 +34,7 @@ router.post('/createCar',function(req,res,next){
         var soghe = req.body.soghe;
         var sohanhly = req.body.sohanhly;
         var diachivanphong = req.body.diachivanphong;
-        var sql = `INSERT INTO XE (XEID,VITRIID,TENXE,GIAXE,HINHXE,MAUXE,LOAIXE,SOGHE,SOHANHLY,DIACHIVANPHONG) VALUES (${xeid},${vitriid},"${tenxe}",${giaxe}
+        var sql = `INSERT INTO XE (VITRIID,TENXE,GIAXE,HINHXE,MAUXE,LOAIXE,SOGHE,SOHANHLY,DIACHIVANPHONG) VALUES (${vitriid},"${tenxe}",${giaxe}
         ,"${hinhxe}","${mauxe}","${loaixe}",${soghe},${sohanhly},"${diachivanphong}")`;
         con.query(sql, function(err,result){
             if(err) throw err;
