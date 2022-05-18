@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var vitriRouter = require('./routes/vitri');
+var xeRouter = require('./routes/xe');
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -17,9 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/', vitriRouter);
+app.use('/location', vitriRouter);
+app.use('/car',xeRouter);
 
 app.listen(process.env.PORT || 5000);
 

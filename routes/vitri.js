@@ -16,14 +16,10 @@ router.get('/', function(req, res, next){
     if (err) throw err;
     con.query("Select * From VITRI",function(err, result){
       if(err) throw err;
-      res.json({status: 201, data: result[0]});
+      res.json(result[0]);
     });
   });
 });
-  //Chuyển tới trang tạo location mới
-  router.get('/create',function(req,res,next){
-    res.render('locationCreate');
-  });
   //Thực hiện tạo 1 location mới
   router.post('/create', function(req, res,next){
     var id = req.body.id;
@@ -41,13 +37,8 @@ router.get('/', function(req, res, next){
     var sql = `select * from VITRI where VITRIID = ${req.params.id}`;
     con.query(sql,function(err, result){
       if(err) throw err;
-      console.log("Select Success");
       res.json(result);
     });
-  });
-  //Chuyển tới trang có thuộc tính của id trong bảng
-  router.get('/update/:id', function(req,res,next){
-    res.json('change page');
   });
   //Cập nhật thuộc tính theo id trong bảng
   router.put('/update/:id', function(req,res,next){
@@ -71,7 +62,7 @@ router.get('/', function(req, res, next){
   //Xóa 1 cột theo id trong bảng location
   router.delete('/delete/:id', function(req,res,next){
     let id = req.params.id;
-    var sql = `DELETE FROM VITRI WHERE VITRIID = ${req.params.id}`;
+    var sql = `DELETE FROM VITRI WHERE VITRIID = ${id}`;
     con.query(sql, function(err, result){
         if (err) throw err;
         res.send(result);
