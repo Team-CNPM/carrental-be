@@ -2,7 +2,7 @@ var express = require('express');
 var mysql = require('mysql2');
 var router = express.Router();
 
-var con = mysql2.createConnection({
+var con = mysql.createConnection({
     host: "containers-us-west-41.railway.app",
     user: "root",
     password: "WlEb6IE9QBDw1VZvB0Bz",
@@ -24,7 +24,6 @@ router.get('/',function(req,res,next){
 router.post('/createDriver', function(req, res, next){
     con.connect(function(err){
         if(err) throw err;
-        var taixeid = req.body.id;
         var xeid = req.body.xeid;
         var tentaixe = req.body.tentaixe;
         var best_drive = req.body.best_drive;

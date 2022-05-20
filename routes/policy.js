@@ -1,9 +1,8 @@
 var express = require('express');
 var mysql = require('mysql2');
-var router = express.Router();
-var dbconn = require('./dbcon');
+var router = express.Router();s
 
-var con = mysql2.createConnection({
+var con = mysql.createConnection({
     host: "containers-us-west-41.railway.app",
     user: "root",
     password: "WlEb6IE9QBDw1VZvB0Bz",
