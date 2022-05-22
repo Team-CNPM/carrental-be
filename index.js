@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var vitriRouter = require('./routes/vitri');
 var xeRouter = require('./routes/xe');
+var thuexeRouter = require('./routes/thuexe');
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +23,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/location', vitriRouter);
 app.use('/car',xeRouter);
+app.use('/carrent',thuexeRouter);
 
 app.listen(process.env.PORT || 5000);
 

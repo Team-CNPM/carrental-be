@@ -16,7 +16,7 @@ router.get('/', function(req, res, next){
       var sql =`Select * From XE`;
       con.query(sql,function(err, result){
         if(err) throw err;
-        res.json(result[0]);
+        res.json(result);
       });
     });
 });
@@ -24,6 +24,7 @@ router.get('/', function(req, res, next){
 router.post('/createCar',function(req,res,next){
     con.connect(function(err){
         if(err) throw err;
+        var id = req.body.id;
         var tenxe = req.body.tenxe;
         var vitriid = req.body.vitriid;
         var giaxe = req.body.giaxe;
@@ -33,7 +34,8 @@ router.post('/createCar',function(req,res,next){
         var soghe = req.body.soghe;
         var sohanhly = req.body.sohanhly;
         var diachivanphong = req.body.diachivanphong;
-        var sql = `INSERT INTO XE (VITRIID,TENXE,GIAXE,HINHXE,MAUXE,LOAIXE,SOGHE,SOHANHLY,DIACHIVANPHONG) VALUES (${vitriid},"${tenxe}",${giaxe}
+        var sql = `INSERT INTO XE (XEID,VITRIID,TENXE,GIAXE,HINHXE,MAUXE,LOAIXE,SOGHE,SOHANHLY,DIACHIVANPHONG) 
+        VALUES (${id},${vitriid},"${tenxe}",${giaxe}
         ,"${hinhxe}","${mauxe}","${loaixe}",${soghe},${sohanhly},"${diachivanphong}")`;
         con.query(sql, function(err,result){
             if(err) throw err;

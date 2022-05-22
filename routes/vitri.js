@@ -15,9 +15,9 @@ router.get('/', function(req, res, next){
   con.connect(function(err){
     if (err) throw err;
     var sql = `Select * From VITRI`
-    con.query(sql,function(err, result){
+    con.query(sql,function(err,result){
       if(err) throw err;
-      res.json(result[0]);
+      res.json(result);
     });
   });
 });
