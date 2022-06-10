@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,12 +18,14 @@
     "http-errors": "^2.0.0",
     "jade": "^1.11.0",
     "mongodb": "^4.6.0",
-    "mongoose": "^6.3.3",
+    "mongoose": "^6.3.6",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",
     "path": "^0.12.7",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "stripe": "^9.5.0"
   }
 }
