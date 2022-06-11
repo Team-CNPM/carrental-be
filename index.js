@@ -11,8 +11,6 @@ var payRouter = require('./routes/thanhtoan');
 var thuexeRouter = require('./routes/thuexe');
 var app = express();
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
